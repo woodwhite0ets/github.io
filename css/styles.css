@@ -1,0 +1,34 @@
+@layer utilities {
+    .content-auto {
+        content-visibility: auto;
+    }
+    .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    .transition-all-300 {
+        transition: all 0.3s ease;
+    }
+    .hover-scale {
+        @apply hover:scale-105 transition-all duration-300;
+    }
+    .skill-card {
+        @apply bg-white rounded-xl shadow-md p-6 hover-scale;
+    }
+    .project-card {
+        @apply bg-white rounded-xl shadow-md overflow-hidden hover-scale;
+    }
+    .animate-fade-in {
+        animation: fadeIn 0.8s ease-in-out forwards;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}    
