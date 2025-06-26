@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>李明 | 全栈数据开发工程师</title>
+    <title>Wood-White | 全栈数据开发学习者</title>
     <!-- 引入外部资源 -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
@@ -11,21 +11,73 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind配置 -->
-    <script src="js/tailwind.config.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36D399',
+                        accent: '#7C3AED',
+                        dark: '#1E293B',
+                        light: '#F8FAFC'
+                    },
+                    fontFamily: {
+                        inter: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
     
     <!-- 自定义样式 -->
-    <link href="css/styles.css" rel="stylesheet">
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .transition-all-300 {
+                transition: all 0.3s ease;
+            }
+            .hover-scale {
+                @apply hover:scale-105 transition-all duration-300;
+            }
+            .skill-card {
+                @apply bg-white rounded-xl shadow-md p-6 hover-scale;
+            }
+            .project-card {
+                @apply bg-white rounded-xl shadow-md overflow-hidden hover-scale;
+            }
+            .animate-fade-in {
+                animation: fadeIn 0.8s ease-in-out forwards;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body class="font-inter bg-light text-dark">
     <!-- 导航栏 -->
     <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white/95 shadow-sm">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <a href="#hero" class="text-2xl font-bold text-primary">李明</a>
+            <a href="#hero" class="text-2xl font-bold text-primary">Wood-White</a>
             <div class="hidden md:flex space-x-8">
                 <a href="#about" class="text-dark hover:text-primary transition-all-300">关于我</a>
                 <a href="#skills" class="text-dark hover:text-primary transition-all-300">技能</a>
                 <a href="#projects" class="text-dark hover:text-primary transition-all-300">项目</a>
-                <a href="#experience" class="text-dark hover:text-primary transition-all-300">经验</a>
+                <a href="#education" class="text-dark hover:text-primary transition-all-300">教育</a>
                 <a href="#contact" class="text-dark hover:text-primary transition-all-300">联系</a>
             </div>
             <button class="md:hidden text-dark focus:outline-none" id="menu-toggle">
@@ -38,7 +90,7 @@
                 <a href="#about" class="text-dark hover:text-primary py-2 transition-all-300">关于我</a>
                 <a href="#skills" class="text-dark hover:text-primary py-2 transition-all-300">技能</a>
                 <a href="#projects" class="text-dark hover:text-primary py-2 transition-all-300">项目</a>
-                <a href="#experience" class="text-dark hover:text-primary py-2 transition-all-300">经验</a>
+                <a href="#education" class="text-dark hover:text-primary py-2 transition-all-300">教育</a>
                 <a href="#contact" class="text-dark hover:text-primary py-2 transition-all-300">联系</a>
             </div>
         </div>
@@ -50,13 +102,13 @@
             <div class="flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-1/2 animate-fade-in">
                     <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold leading-tight text-dark mb-4">
-                        你好，我是<span class="text-primary">李明</span>
+                        你好，我是<span class="text-primary">Wood-White</span>
                     </h1>
                     <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-semibold text-dark/80 mb-6">
-                        全栈数据开发工程师
+                        全栈数据开发学习者
                     </h2>
                     <p class="text-lg text-dark/70 mb-8 max-w-lg">
-                        熟练掌握前端开发、数据处理与分析、数据库管理及服务器部署，致力于通过技术创造高效解决方案。
+                        计算机科学专业大学生，热衷于前端开发、数据处理与分析，不断探索技术边界。
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <a href="#projects" class="px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all-300 shadow-lg hover:shadow-primary/20">
@@ -83,7 +135,7 @@
                 </div>
                 <div class="md:w-1/2 relative">
                     <div class="relative z-10 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-all duration-500">
-                        <img src="https://picsum.photos/id/177/600/600" alt="李明的照片" class="w-full h-auto">
+                        <img src="https://picsum.photos/id/177/600/600" alt="Wood-White的照片" class="w-full h-auto">
                     </div>
                     <div class="absolute -bottom-6 -right-6 w-40 h-40 bg-primary/10 rounded-full -z-10"></div>
                     <div class="absolute -top-6 -left-6 w-32 h-32 bg-secondary/10 rounded-full -z-10"></div>
@@ -103,15 +155,15 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div class="order-2 md:order-1">
-                    <h3 class="text-2xl font-semibold mb-6">全栈数据开发工程师</h3>
+                    <h3 class="text-2xl font-semibold mb-6">全栈数据开发学习者</h3>
                     <p class="text-dark/70 mb-4">
-                        我是一名热衷于技术创新的全栈数据开发工程师，拥有丰富的前端开发和数据处理经验。我擅长将复杂的技术问题转化为简洁高效的解决方案。
+                        我是一名计算机科学专业的大学生，对前端开发和数据处理有着浓厚的兴趣。我喜欢通过技术解决实际问题，并不断探索新的技术领域。
                     </p>
                     <p class="text-dark/70 mb-4">
-                        我熟练掌握HTML、CSS、JavaScript等前端技术，熟悉Vue3框架，能够独立开发响应式网站和Web应用。同时，我也具备扎实的后端开发能力，能够使用Python进行数据处理、分析和可视化，以及数据库管理与维护。
+                        我熟练掌握HTML、CSS、JavaScript等前端技术，了解Vue3框架，能够独立开发响应式网站和Web应用。同时，我也具备扎实的Python编程基础，能够进行数据处理、分析和可视化。
                     </p>
                     <p class="text-dark/70 mb-6">
-                        我相信技术应该服务于人，因此我始终关注用户体验和产品价值，致力于创造既有技术深度又有良好用户体验的产品。
+                        作为一名大学生，我积极参与各种技术项目和竞赛，不断提升自己的实践能力。我相信通过不断学习和实践，我能够成为一名优秀的全栈数据开发工程师。
                     </p>
                     
                     <div class="grid grid-cols-2 gap-4 mb-8">
@@ -125,11 +177,11 @@
                         </div>
                         <div class="flex items-center">
                             <i class="fa fa-check text-primary mr-2"></i>
-                            <span>数据库管理</span>
+                            <span>Python编程</span>
                         </div>
                         <div class="flex items-center">
                             <i class="fa fa-check text-primary mr-2"></i>
-                            <span>服务器部署与管理</span>
+                            <span>团队协作</span>
                         </div>
                     </div>
                     
@@ -142,20 +194,20 @@
                     <div class="bg-gradient-to-br from-primary/10 to-secondary/10 p-8 rounded-2xl">
                         <div class="grid grid-cols-2 gap-6">
                             <div class="text-center p-4">
-                                <div class="text-4xl font-bold text-primary mb-2">3+</div>
-                                <div class="text-dark/70">年专业经验</div>
+                                <div class="text-4xl font-bold text-primary mb-2">2+</div>
+                                <div class="text-dark/70">年编程经验</div>
                             </div>
                             <div class="text-center p-4">
-                                <div class="text-4xl font-bold text-primary mb-2">20+</div>
+                                <div class="text-4xl font-bold text-primary mb-2">10+</div>
                                 <div class="text-dark/70">完成项目</div>
                             </div>
                             <div class="text-center p-4">
-                                <div class="text-4xl font-bold text-primary mb-2">5+</div>
-                                <div class="text-dark/70">技术栈</div>
+                                <div class="text-4xl font-bold text-primary mb-2">3</div>
+                                <div class="text-dark/70">技术竞赛获奖</div>
                             </div>
                             <div class="text-center p-4">
-                                <div class="text-4xl font-bold text-primary mb-2">3</div>
-                                <div class="text-dark/70">技术认证</div>
+                                <div class="text-4xl font-bold text-primary mb-2">GPA 3.8</div>
+                                <div class="text-dark/70">专业成绩</div>
                             </div>
                         </div>
                     </div>
@@ -215,36 +267,36 @@
                     </div>
                 </div>
                 
-                <!-- 爬虫开发 -->
+                <!-- 编程基础 -->
                 <div class="skill-card border-l-4 border-accent">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mr-4">
-                            <i class="fa fa-spider text-accent text-xl"></i>
+                            <i class="fa fa-laptop text-accent text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-semibold">爬虫开发</h3>
+                        <h3 class="text-xl font-semibold">编程基础</h3>
                     </div>
                     <p class="text-dark/70 mb-4">
-                        掌握selenium、DrissionPage、request等爬虫模块库，有独立编写网络爬虫的能力，能够高效获取和处理网络数据。
+                        掌握计算机科学基础知识，熟悉数据结构、算法和面向对象编程，能够使用多种编程语言解决实际问题。
                     </p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Selenium</span>
-                        <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">DrissionPage</span>
-                        <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Requests</span>
-                        <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">BeautifulSoup</span>
-                        <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">正则表达式</span>
+                        <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Python</span>
+                        <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Java</span>
+                        <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">C++</span>
+                        <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">数据结构</span>
+                        <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">算法</span>
                     </div>
                 </div>
                 
-                <!-- 数据库管理 -->
+                <!-- 数据库 -->
                 <div class="skill-card border-l-4 border-primary">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mr-4">
                             <i class="fa fa-server text-primary text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-semibold">数据库管理</h3>
+                        <h3 class="text-xl font-semibold">数据库</h3>
                     </div>
                     <p class="text-dark/70 mb-4">
-                        具备SQL语言操作经验，能利用Python编写脚本高效进行数据库管理与维护，熟悉MySQL、PostgreSQL等关系型数据库。
+                        了解数据库设计和开发，掌握SQL语言，能够使用MySQL、PostgreSQL等关系型数据库进行数据存储和查询。
                     </p>
                     <div class="flex flex-wrap gap-2">
                         <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm">SQL</span>
@@ -255,43 +307,43 @@
                     </div>
                 </div>
                 
-                <!-- 服务器部署与管理 -->
+                <!-- 工具与方法 -->
                 <div class="skill-card border-l-4 border-secondary">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mr-4">
-                            <i class="fa fa-cloud text-secondary text-xl"></i>
+                            <i class="fa fa-wrench text-secondary text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-semibold">服务器部署与管理</h3>
+                        <h3 class="text-xl font-semibold">工具与方法</h3>
                     </div>
                     <p class="text-dark/70 mb-4">
-                        了解Linux操作系统，会使用Linux操作系统以及Vim工具管理文件，并且进行服务器部署，了解Apache、Nginx等Web服务器。
+                        熟悉软件开发工具和方法，能够使用Git进行版本控制，了解敏捷开发流程，具备良好的代码规范和团队协作能力。
                     </p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">Linux</span>
-                        <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">Vim</span>
-                        <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">Apache</span>
-                        <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">Nginx</span>
-                        <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">Frp</span>
+                        <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">Git</span>
+                        <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">GitHub</span>
+                        <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">VS Code</span>
+                        <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">敏捷开发</span>
+                        <span class="px-3 py-1 bg-secondary/10 text-secondary rounded-full text-sm">团队协作</span>
                     </div>
                 </div>
                 
-                <!-- 版本控制 -->
+                <!-- 机器学习基础 -->
                 <div class="skill-card border-l-4 border-accent">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mr-4">
-                            <i class="fa fa-git text-accent text-xl"></i>
+                            <i class="fa fa-brain text-accent text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-semibold">版本控制</h3>
+                        <h3 class="text-xl font-semibold">机器学习基础</h3>
                     </div>
                     <p class="text-dark/70 mb-4">
-                        熟练使用Git进行代码管理和团队协作，了解Git工作流程和分支管理策略，能够高效参与团队项目开发。
+                        了解机器学习基本算法和模型，能够使用Scikit-learn进行简单的机器学习任务，对深度学习有一定的了解。
                     </p>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Git</span>
-                        <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">GitHub</span>
-                        <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">GitLab</span>
-                        <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">版本控制</span>
-                        <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">团队协作</span>
+                        <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">Scikit-learn</span>
+                        <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">TensorFlow</span>
+                        <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">分类算法</span>
+                        <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">回归分析</span>
+                        <span class="px-3 py-1 bg-accent/10 text-accent rounded-full text-sm">数据预处理</span>
                     </div>
                 </div>
             </div>
@@ -319,21 +371,21 @@
                 <!-- 项目1 -->
                 <div class="project-card">
                     <div class="relative">
-                        <img src="https://picsum.photos/id/0/600/400" alt="数据可视化平台" class="w-full h-48 object-cover">
+                        <img src="https://picsum.photos/id/0/600/400" alt="校园活动管理系统" class="w-full h-48 object-cover">
                         <div class="absolute top-4 right-4 bg-primary text-white text-xs px-3 py-1 rounded-full">
-                            Python
+                            Web开发
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">数据可视化平台</h3>
+                        <h3 class="text-xl font-semibold mb-2">校园活动管理系统</h3>
                         <p class="text-dark/70 mb-4">
-                            基于Python和Vue3开发的企业级数据可视化平台，支持多源数据接入、实时数据处理和交互式图表展示。
+                            使用Vue3和Node.js开发的校园活动管理平台，支持活动发布、报名、审批和统计等功能，方便学校组织和管理各类活动。
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs">Python</span>
                             <span class="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs">Vue3</span>
-                            <span class="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs">Django</span>
-                            <span class="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs">PostgreSQL</span>
+                            <span class="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs">Node.js</span>
+                            <span class="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs">Express</span>
+                            <span class="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs">MySQL</span>
                         </div>
                         <a href="#" class="text-primary hover:text-primary/80 font-medium flex items-center">
                             查看详情 <i class="fa fa-arrow-right ml-2"></i>
@@ -344,21 +396,21 @@
                 <!-- 项目2 -->
                 <div class="project-card">
                     <div class="relative">
-                        <img src="https://picsum.photos/id/180/600/400" alt="电商产品爬虫系统" class="w-full h-48 object-cover">
+                        <img src="https://picsum.photos/id/180/600/400" alt="股票数据分析工具" class="w-full h-48 object-cover">
                         <div class="absolute top-4 right-4 bg-secondary text-white text-xs px-3 py-1 rounded-full">
-                            爬虫
+                            数据分析
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">电商产品爬虫系统</h3>
+                        <h3 class="text-xl font-semibold mb-2">股票数据分析工具</h3>
                         <p class="text-dark/70 mb-4">
-                            基于Python开发的高性能电商产品数据爬取系统，支持多平台数据采集、自动去重和价格趋势分析。
+                            基于Python开发的股票数据分析工具，能够爬取股票数据、进行技术分析并生成可视化报告，帮助投资者做出决策。
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-2 py-1 bg-secondary/10 text-secondary rounded-full text-xs">Python</span>
-                            <span class="px-2 py-1 bg-secondary/10 text-secondary rounded-full text-xs">Selenium</span>
+                            <span class="px-2 py-1 bg-secondary/10 text-secondary rounded-full text-xs">Pandas</span>
+                            <span class="px-2 py-1 bg-secondary/10 text-secondary rounded-full text-xs">Matplotlib</span>
                             <span class="px-2 py-1 bg-secondary/10 text-secondary rounded-full text-xs">Requests</span>
-                            <span class="px-2 py-1 bg-secondary/10 text-secondary rounded-full text-xs">MongoDB</span>
                         </div>
                         <a href="#" class="text-secondary hover:text-secondary/80 font-medium flex items-center">
                             查看详情 <i class="fa fa-arrow-right ml-2"></i>
@@ -369,21 +421,21 @@
                 <!-- 项目3 -->
                 <div class="project-card">
                     <div class="relative">
-                        <img src="https://picsum.photos/id/160/600/400" alt="响应式企业网站" class="w-full h-48 object-cover">
+                        <img src="https://picsum.photos/id/160/600/400" alt="在线学习平台" class="w-full h-48 object-cover">
                         <div class="absolute top-4 right-4 bg-accent text-white text-xs px-3 py-1 rounded-full">
-                            前端
+                            全栈开发
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">响应式企业网站</h3>
+                        <h3 class="text-xl font-semibold mb-2">在线学习平台</h3>
                         <p class="text-dark/70 mb-4">
-                            使用Vue3和Tailwind CSS开发的响应式企业官网，包含动态数据展示、产品介绍和客户反馈等功能模块。
+                            基于Vue3和Spring Boot开发的在线学习平台，支持课程展示、学习进度跟踪、在线测试等功能，为学生提供便捷的学习体验。
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-2 py-1 bg-accent/10 text-accent rounded-full text-xs">Vue3</span>
-                            <span class="px-2 py-1 bg-accent/10 text-accent rounded-full text-xs">Tailwind CSS</span>
-                            <span class="px-2 py-1 bg-accent/10 text-accent rounded-full text-xs">JavaScript</span>
-                            <span class="px-2 py-1 bg-accent/10 text-accent rounded-full text-xs">Firebase</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent rounded-full text-xs">Spring Boot</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent rounded-full text-xs">MySQL</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent rounded-full text-xs">Docker</span>
                         </div>
                         <a href="#" class="text-accent hover:text-accent/80 font-medium flex items-center">
                             查看详情 <i class="fa fa-arrow-right ml-2"></i>
@@ -394,21 +446,21 @@
                 <!-- 项目4 -->
                 <div class="project-card">
                     <div class="relative">
-                        <img src="https://picsum.photos/id/1/600/400" alt="数据分析工具" class="w-full h-48 object-cover">
+                        <img src="https://picsum.photos/id/1/600/400" alt="校园二手交易平台" class="w-full h-48 object-cover">
                         <div class="absolute top-4 right-4 bg-primary text-white text-xs px-3 py-1 rounded-full">
-                            Python
+                            前端开发
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">数据分析工具</h3>
+                        <h3 class="text-xl font-semibold mb-2">校园二手交易平台</h3>
                         <p class="text-dark/70 mb-4">
-                            基于Python和Streamlit开发的数据分析工具，支持数据导入、清洗、可视化和基本统计分析功能。
+                            使用React和Firebase开发的校园二手交易平台，支持商品发布、搜索、交易和评价等功能，方便学生之间的闲置物品交易。
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs">Python</span>
-                            <span class="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs">Pandas</span>
-                            <span class="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs">Matplotlib</span>
-                            <span class="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs">Streamlit</span>
+                            <span class="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs">React</span>
+                            <span class="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs">Firebase</span>
+                            <span class="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs">JavaScript</span>
+                            <span class="px-2 py-1 bg-primary/10 text-primary rounded-full text-xs">Tailwind CSS</span>
                         </div>
                         <a href="#" class="text-primary hover:text-primary/80 font-medium flex items-center">
                             查看详情 <i class="fa fa-arrow-right ml-2"></i>
@@ -419,21 +471,21 @@
                 <!-- 项目5 -->
                 <div class="project-card">
                     <div class="relative">
-                        <img src="https://picsum.photos/id/239/600/400" alt="服务器监控系统" class="w-full h-48 object-cover">
+                        <img src="https://picsum.photos/id/239/600/400" alt="智能推荐系统" class="w-full h-48 object-cover">
                         <div class="absolute top-4 right-4 bg-secondary text-white text-xs px-3 py-1 rounded-full">
-                            后端
+                            机器学习
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">服务器监控系统</h3>
+                        <h3 class="text-xl font-semibold mb-2">智能推荐系统</h3>
                         <p class="text-dark/70 mb-4">
-                            基于Python和Flask开发的服务器监控系统，支持实时监控服务器性能指标、自动报警和历史数据分析。
+                            基于协同过滤算法开发的智能推荐系统，能够根据用户行为和偏好推荐个性化内容，提高用户体验和内容点击率。
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
                             <span class="px-2 py-1 bg-secondary/10 text-secondary rounded-full text-xs">Python</span>
-                            <span class="px-2 py-1 bg-secondary/10 text-secondary rounded-full text-xs">Flask</span>
-                            <span class="px-2 py-1 bg-secondary/10 text-secondary rounded-full text-xs">Prometheus</span>
-                            <span class="px-2 py-1 bg-secondary/10 text-secondary rounded-full text-xs">Grafana</span>
+                            <span class="px-2 py-1 bg-secondary/10 text-secondary rounded-full text-xs">Scikit-learn</span>
+                            <span class="px-2 py-1 bg-secondary/10 text-secondary rounded-full text-xs">协同过滤</span>
+                            <span class="px-2 py-1 bg-secondary/10 text-secondary rounded-full text-xs">数据挖掘</span>
                         </div>
                         <a href="#" class="text-secondary hover:text-secondary/80 font-medium flex items-center">
                             查看详情 <i class="fa fa-arrow-right ml-2"></i>
@@ -444,21 +496,21 @@
                 <!-- 项目6 -->
                 <div class="project-card">
                     <div class="relative">
-                        <img src="https://picsum.photos/id/3/600/400" alt="个人博客系统" class="w-full h-48 object-cover">
+                        <img src="https://picsum.photos/id/3/600/400" alt="校园地图导航应用" class="w-full h-48 object-cover">
                         <div class="absolute top-4 right-4 bg-accent text-white text-xs px-3 py-1 rounded-full">
-                            全栈
+                            移动开发
                         </div>
                     </div>
                     <div class="p-6">
-                        <h3 class="text-xl font-semibold mb-2">个人博客系统</h3>
+                        <h3 class="text-xl font-semibold mb-2">校园地图导航应用</h3>
                         <p class="text-dark/70 mb-4">
-                            基于Vue3和Node.js开发的个人博客系统，支持文章发布、评论互动、标签分类和阅读统计等功能。
+                            使用Flutter开发的跨平台校园地图导航应用，提供校园建筑导航、设施查询和活动位置标注等功能，帮助新生快速熟悉校园。
                         </p>
                         <div class="flex flex-wrap gap-2 mb-4">
-                            <span class="px-2 py-1 bg-accent/10 text-accent rounded-full text-xs">Vue3</span>
-                            <span class="px-2 py-1 bg-accent/10 text-accent rounded-full text-xs">Node.js</span>
-                            <span class="px-2 py-1 bg-accent/10 text-accent rounded-full text-xs">Express</span>
-                            <span class="px-2 py-1 bg-accent/10 text-accent rounded-full text-xs">MySQL</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent rounded-full text-xs">Flutter</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent rounded-full text-xs">Dart</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent rounded-full text-xs">地图API</span>
+                            <span class="px-2 py-1 bg-accent/10 text-accent rounded-full text-xs">Firebase</span>
                         </div>
                         <a href="#" class="text-accent hover:text-accent/80 font-medium flex items-center">
                             查看详情 <i class="fa fa-arrow-right ml-2"></i>
@@ -475,79 +527,109 @@
         </div>
     </section>
 
-    <!-- 经验部分 -->
-    <section id="experience" class="py-20 bg-light">
+    <!-- 教育部分 -->
+    <section id="education" class="py-20 bg-light">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
-                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark mb-4">工作经验</h2>
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark mb-4">教育背景</h2>
                 <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
-                <p class="text-dark/70 max-w-2xl mx-auto">我的职业发展历程</p>
+                <p class="text-dark/70 max-w-2xl mx-auto">我的学习历程</p>
             </div>
             
-            <div class="relative">
-                <!-- 时间线 -->
-                <div class="absolute left-0 md:left-1/2 top-0 bottom-0 w-1 bg-primary/20 transform md:translate-x-[-0.5px]"></div>
-                
-                <!-- 经验1 -->
-                <div class="mb-12 relative">
-                    <div class="flex flex-col md:flex-row items-center">
-                        <div class="md:w-1/2 md:pr-12 md:text-right mb-8 md:mb-0">
-                            <div class="bg-white p-6 rounded-xl shadow-md hover-scale">
-                                <h3 class="text-xl font-semibold mb-2">全栈开发工程师</h3>
-                                <p class="text-primary font-medium mb-2">科技有限公司</p>
-                                <p class="text-dark/70 mb-3">2023年6月 - 至今</p>
-                                <p class="text-dark/70">
-                                    - 负责公司数据可视化平台的前后端开发工作，使用Python和Vue3技术栈<br>
-                                    - 设计并实现了高效的数据爬取系统，提升数据采集效率40%<br>
-                                    - 优化数据库查询性能，使关键业务查询速度提升60%<br>
-                                    - 主导服务器架构升级，引入容器化技术，提高系统稳定性和可维护性
-                                </p>
-                            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 大学 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover-scale">
+                    <div class="flex items-start">
+                        <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fa fa-graduation-cap text-primary text-2xl"></i>
                         </div>
-                        <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-primary rounded-full transform md:translate-x-[-2px]"></div>
-                        <div class="md:w-1/2 md:pl-12 hidden md:block"></div>
-                    </div>
-                </div>
-                
-                <!-- 经验2 -->
-                <div class="mb-12 relative">
-                    <div class="flex flex-col md:flex-row items-center">
-                        <div class="md:w-1/2 md:pr-12 hidden md:block"></div>
-                        <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-primary rounded-full transform md:translate-x-[-2px]"></div>
-                        <div class="md:w-1/2 md:pl-12 mb-8 md:mb-0">
-                            <div class="bg-white p-6 rounded-xl shadow-md hover-scale">
-                                <h3 class="text-xl font-semibold mb-2">前端开发实习生</h3>
-                                <p class="text-primary font-medium mb-2">互联网公司</p>
-                                <p class="text-dark/70 mb-3">2022年7月 - 2022年12月</p>
-                                <p class="text-dark/70">
-                                    - 参与公司官网重构项目，负责前端页面开发和交互实现<br>
-                                    - 优化前端加载速度，通过资源压缩和懒加载技术，页面加载时间减少30%<br>
-                                    - 开发移动端适配方案，确保网站在各种移动设备上的良好体验<br>
-                                    - 协助后端团队完成API接口设计和测试工作
-                                </p>
-                            </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">某某大学</h3>
+                            <p class="text-primary font-medium mb-2">计算机科学与技术 | 本科</p>
+                            <p class="text-dark/70 mb-3">2022年9月 - 2026年6月 | GPA: 3.8/4.0</p>
+                            <p class="text-dark/70">
+                                主修课程：数据结构、算法分析、计算机组成原理、操作系统、数据库系统、人工智能、机器学习、计算机网络、软件工程等。
+                            </p>
+                            <p class="text-dark/70 mt-3">
+                                荣誉与奖项：
+                                <ul class="list-disc pl-5 mt-2 space-y-1">
+                                    <li>2023年 国家奖学金</li>
+                                    <li>2023年 校优秀学生干部</li>
+                                    <li>2022年 校一等奖学金</li>
+                                    <li>2022年 程序设计竞赛校赛二等奖</li>
+                                </ul>
+                            </p>
                         </div>
                     </div>
                 </div>
                 
-                <!-- 经验3 -->
-                <div class="relative">
-                    <div class="flex flex-col md:flex-row items-center">
-                        <div class="md:w-1/2 md:pr-12 md:text-right mb-8 md:mb-0">
-                            <div class="bg-white p-6 rounded-xl shadow-md hover-scale">
-                                <h3 class="text-xl font-semibold mb-2">数据分析师</h3>
-                                <p class="text-primary font-medium mb-2">电商公司</p>
-                                <p class="text-dark/70 mb-3">2021年6月 - 2022年6月</p>
-                                <p class="text-dark/70">
-                                    - 负责公司销售数据的收集、清洗和分析工作<br>
-                                    - 开发数据可视化报表，为管理层提供决策支持<br>
-                                    - 设计并实现用户行为分析系统，挖掘用户购买偏好<br>
-                                    - 参与营销活动数据分析，评估活动效果并提出优化建议
-                                </p>
-                            </div>
+                <!-- 高中 -->
+                <div class="bg-white p-8 rounded-xl shadow-md hover-scale">
+                    <div class="flex items-start">
+                        <div class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mr-4 flex-shrink-0">
+                            <i class="fa fa-school text-primary text-2xl"></i>
                         </div>
-                        <div class="absolute left-0 md:left-1/2 w-4 h-4 bg-primary rounded-full transform md:translate-x-[-2px]"></div>
-                        <div class="md:w-1/2 md:pl-12 hidden md:block"></div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">某某高级中学</h3>
+                            <p class="text-primary font-medium mb-2">理科</p>
+                            <p class="text-dark/70 mb-3">2019年9月 - 2022年6月</p>
+                            <p class="text-dark/70">
+                                主要课程：数学、物理、化学、生物、信息技术等。
+                            </p>
+                            <p class="text-dark/70 mt-3">
+                                荣誉与奖项：
+                                <ul class="list-disc pl-5 mt-2 space-y-1">
+                                    <li>全国中学生信息学奥林匹克联赛（NOIP）二等奖</li>
+                                    <li>全国中学生物理竞赛省级二等奖</li>
+                                    <li>校级三好学生</li>
+                                    <li>校级优秀学生干部</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 证书 -->
+            <div class="mt-16">
+                <h3 class="text-2xl font-semibold mb-8 text-center">证书与荣誉</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-xl shadow-md hover-scale">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-3">
+                                <i class="fa fa-certificate text-primary"></i>
+                            </div>
+                            <h4 class="font-semibold">英语四级证书</h4>
+                        </div>
+                        <p class="text-dark/70">
+                            成绩：580分<br>
+                            颁发日期：2023年6月
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-md hover-scale">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-3">
+                                <i class="fa fa-certificate text-primary"></i>
+                            </div>
+                            <h4 class="font-semibold">计算机二级证书（Python）</h4>
+                        </div>
+                        <p class="text-dark/70">
+                            成绩：优秀<br>
+                            颁发日期：2023年12月
+                        </p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-xl shadow-md hover-scale">
+                        <div class="flex items-center mb-4">
+                            <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center mr-3">
+                                <i class="fa fa-trophy text-primary"></i>
+                            </div>
+                            <h4 class="font-semibold">校优秀学生干部</h4>
+                        </div>
+                        <p class="text-dark/70">
+                            颁发日期：2023年9月
+                        </p>
                     </div>
                 </div>
             </div>
@@ -567,7 +649,7 @@
                 <div class="lg:col-span-2">
                     <div class="bg-light p-8 rounded-xl shadow-md">
                         <h3 class="text-xl font-semibold mb-6">发送消息</h3>
-                        <form id="contact-form">
+                        <form>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                                 <div>
                                     <label for="name" class="block text-dark/70 mb-2">姓名</label>
@@ -603,7 +685,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-medium mb-1">邮箱</h4>
-                                    <p class="text-dark/70">liming@example.com</p>
+                                    <p class="text-dark/70">wood-white@example.com</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
@@ -621,7 +703,7 @@
                                 </div>
                                 <div>
                                     <h4 class="font-medium mb-1">微信</h4>
-                                    <p class="text-dark/70">liming_2023</p>
+                                    <p class="text-dark/70">wood-white_2022</p>
                                 </div>
                             </div>
                             <div class="flex items-start">
@@ -629,8 +711,8 @@
                                     <i class="fa fa-map-marker text-primary"></i>
                                 </div>
                                 <div>
-                                    <h4 class="font-medium mb-1">地址</h4>
-                                    <p class="text-dark/70">北京市海淀区科技园</p>
+                                    <h4 class="font-medium mb-1">学校地址</h4>
+                                    <p class="text-dark/70">北京市海淀区中关村大街1号</p>
                                 </div>
                             </div>
                         </div>
@@ -666,9 +748,9 @@
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <div>
-                    <h3 class="text-xl font-semibold mb-4">李明</h3>
+                    <h3 class="text-xl font-semibold mb-4">Wood-White</h3>
                     <p class="text-white/70 mb-4">
-                        全栈数据开发工程师，致力于通过技术创造高效解决方案。
+                        计算机科学专业大学生，致力于通过技术创造高效解决方案。
                     </p>
                     <div class="flex space-x-4">
                         <a href="#" class="text-white/70 hover:text-white transition-all-300">
@@ -691,7 +773,7 @@
                         <li><a href="#about" class="text-white/70 hover:text-white transition-all-300">关于我</a></li>
                         <li><a href="#skills" class="text-white/70 hover:text-white transition-all-300">技能</a></li>
                         <li><a href="#projects" class="text-white/70 hover:text-white transition-all-300">项目</a></li>
-                        <li><a href="#experience" class="text-white/70 hover:text-white transition-all-300">经验</a></li>
+                        <li><a href="#education" class="text-white/70 hover:text-white transition-all-300">教育</a></li>
                         <li><a href="#contact" class="text-white/70 hover:text-white transition-all-300">联系</a></li>
                     </ul>
                 </div>
@@ -700,7 +782,7 @@
                     <ul class="space-y-2">
                         <li class="flex items-center">
                             <i class="fa fa-envelope-o mr-2 text-white/70"></i>
-                            <span class="text-white/70">liming@example.com</span>
+                            <span class="text-white/70">wood-white@example.com</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fa fa-phone mr-2 text-white/70"></i>
@@ -708,17 +790,17 @@
                         </li>
                         <li class="flex items-center">
                             <i class="fa fa-weixin mr-2 text-white/70"></i>
-                            <span class="text-white/70">liming_2023</span>
+                            <span class="text-white/70">wood-white_2022</span>
                         </li>
                         <li class="flex items-center">
                             <i class="fa fa-map-marker mr-2 text-white/70"></i>
-                            <span class="text-white/70">北京市海淀区科技园</span>
+                            <span class="text-white/70">北京市海淀区中关村大街1号</span>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="border-t border-white/10 pt-8 text-center text-white/70">
-                <p>&copy; 2025 李明. 保留所有权利.</p>
+                <p>&copy; 2025 Wood-White. 保留所有权利.</p>
             </div>
         </div>
     </footer>
@@ -729,6 +811,72 @@
     </button>
 
     <!-- JavaScript -->
-    <script src="js/main.js"></script>
-</body>
-</html>    
+    <script>
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const backToTop = document.getElementById('back-to-top');
+            
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.remove('py-3');
+                navbar.classList.add('py-2');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.add('py-3');
+                navbar.classList.remove('py-2');
+            }
+            
+            if (window.scrollY > 300) {
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 返回顶部
+        document.getElementById('back-to-top').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // 关闭移动菜单
+                    document.getElementById('mobile-menu').classList.add('hidden');
+                    
+                    // 滚动到目标位置
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 技能图表
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('skillsChart').getContext('2d');
+            
+            new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['前端开发', 'Python编程', '数据处理', '数据库', '机器学习', '移动开发', '后端开发'],
+                    datasets: [{
+                        label: '技能水平',}]}})})
