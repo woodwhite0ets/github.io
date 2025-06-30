@@ -1,0 +1,57 @@
+/* 全局样式 */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* 导航栏样式 */
+.navbar {
+    background-color: #2c3e50;
+    overflow: hidden;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #34495e;
+}
+
+/* 文章容器样式 */
+.post-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    width: 80%;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.post-date {
+    color: #7f8c8d;
+    font-size: 0.9em;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.post-content {
+    line-height: 1.6;
+    font-size: 1.1em;
+}
