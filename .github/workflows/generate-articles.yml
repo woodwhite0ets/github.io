@@ -28,28 +28,31 @@ jobs:
           const path = require('path');
           const { DOMParser } = require('@xmldom/xmldom');
           
-          // 定义 posts 文件夹路径
           const postsDir = path.join(__dirname, 'posts');
           
-          // 读取 posts 文件夹中的所有文件
+          // 读取目录中的所有文件
           fs.readdir(postsDir, (err, files) => {
             if (err) {
-              console.error('读取文件夹时出错:', err);
+              console.error('Error reading posts directory:', err);
               return;
             }
             
             const articles = files
-              .filter(file => path.extname(file) === '.html')
+              .filter(file => path.extname(file) === '.html') // 只处理 HTML 文件
               .map(file => {
+                const filePath = path.join(postsDir, file);
                 try {
-                  // 读取文章文件内容
-                  const filePath = path.join(postsDir, file);
                   const content = fs.readFileSync(filePath, 'utf8');
-                  
-                  // 解析 HTML 并提取元数据
                   const doc = new DOMParser().parseFromString(content, 'text/html');
+                  
+                  // 提取元数据
                   const date = doc.querySelector('meta[name="date"]')?.getAttribute('content');
                   const title = doc.querySelector('meta[name="title"]')?.getAttribute('content');
+                  
+                  if (!date || !title) {
+                    console.warn(`Missing date or title in ${file}`);
+                    return null;
+                  }
                   
                   return {
                     date,
@@ -57,16 +60,16 @@ jobs:
                     url: `./posts/${file}`
                   };
                 } catch (error) {
-                  console.error(`解析 ${file} 时出错:`, error);
+                  console.error(`Error parsing ${file}:`, error);
                   return null;
                 }
               })
-              .filter(article => article && article.date && article.title)
-              .sort((a, b) => new Date(b.date) - new Date(a.date));
-            
-            // 写入 articles.json 文件
+              .filter(article => article !== null) // 过滤掉解析失败的文章
+              .sort((a, b) => new Date(b.date) - new Date(a.date)); // 按日期降序排序
+              
+            // 写入 JSON 文件
             fs.writeFileSync('articles.json', JSON.stringify(articles, null, 2));
-            console.log('✅ 文章列表已更新');
+            console.log('✅ Articles list generated successfully');
           });
           EOF
       
@@ -75,10 +78,10 @@ jobs:
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
           git add articles.json
-          # 仅当文件有变化时才提交
-          if git diff --quiet articles.json; then
-            echo "文章列表无变化，跳过提交"
-          else
-            git commit -m '自动更新文章列表'
+          # 只有文件有变化时才提交
+          if ! git diff --cached --quiet; then
+            git commit -m 'Update articles.json'
             git push
+          else
+            console.log('No changes to commit')
           fi
