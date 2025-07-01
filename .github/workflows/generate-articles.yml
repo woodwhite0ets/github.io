@@ -3,7 +3,7 @@ name: Generate Articles
 on:
   push:
     paths:
-      - 'posts/**'  # 当 posts 文件夹有变化时触发
+      - 'posts/**'  # 当 posts 文件夹有变化时触发1
 
 jobs:
   generate:
