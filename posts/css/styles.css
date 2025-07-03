@@ -182,11 +182,13 @@ a:hover {
     align-items: center;
 }
 
-.post-tags, .post-share {
+.post-tags,
+.post-share {
     margin-bottom: 15px;
 }
 
-.post-tags a, .post-share a {
+.post-tags a,
+.post-share a {
     display: inline-block;
     padding: 5px 12px;
     margin-right: 8px;
@@ -299,32 +301,92 @@ a:hover {
     transform: translateY(-3px);
 }
 
+/* 代码块样式 */
+pre {
+    position: relative;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 15px 0;
+    /* 设置代码块的字体和行高 */
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    line-height: 1.5;
+}
+
+pre code {
+    display: block;
+    white-space: pre;
+    padding: 10px;
+    /* 设置代码区域的字体和行高 */
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    line-height: 1.5;
+}
+
+.line-numbers-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 2.5em;
+    text-align: right;
+    padding: 10px 0.5em 10px 0;
+    border-right: 1px solid #ddd;
+    color: #999;
+    overflow: hidden;
+}
+
+.copy-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    z-index: 10;
+}
+
+.copy-btn:hover {
+    background-color: #f4f4f4;
+}
+
 /* 响应式设计 */
 @media (max-width: 768px) {
     .post-container {
         margin: 20px 15px;
         padding: 20px;
     }
-    
+
     .post-title {
         font-size: 2rem;
     }
-    
+
     .post-footer {
         flex-direction: column;
         align-items: flex-start;
     }
-    
+
     .post-share {
         margin-top: 15px;
     }
-    
+
     .site-footer .container {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .social-links {
         margin-top: 15px;
+    }
+    
+    .line-numbers-wrapper {
+        width: 2em;
+    }
+    
+    pre code {
+        padding-left: 2.5em;
     }
 }
