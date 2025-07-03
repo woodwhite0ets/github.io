@@ -1,0 +1,68 @@
+name: Generate Articles Metadata
+
+on:
+  # 当 posts 目录有文件变化时触发
+  push:
+    paths:
+      - 'posts/**'
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+          
+      - name: Generate articles.json
+        run: |
+          npm install fs path --save
+          node << 'EOF'
+          const fs = require('fs');
+          const path = require('path');
+          
+          const postsDir = path.join(__dirname, 'posts');
+          fs.readdir(postsDir, (err, files) => {
+            if (err) {
+              console.error('读取 posts 目录失败:', err);
+              return;
+            }
+            
+            const htmlFiles = files.filter(file => path.extname(file) === '.html');
+            const articles = htmlFiles.map(file => {
+              const title = path.basename(file, '.html');
+              // 从文件名中提取日期（假设格式为 YYYY-MM-DD-title.html）
+              const dateStr = file.split('-').slice(0, 3).join('-');
+              return {
+                title,
+                date: dateStr,
+                url: `posts/${file}`
+              };
+            });
+            
+            // 按日期降序排序
+            articles.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            // 写入 articles.json
+            fs.writeFile('articles.json', JSON.stringify(articles, null, 2), err => {
+              if (err) {
+                console.error('保存失败:', err);
+                return;
+              }
+              console.log('articles.json 生成成功');
+            });
+          });
+          EOF
+        
+      - name: Commit changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add articles.json
+          git commit -m "Update articles metadata" || true
+          git push
