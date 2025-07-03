@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第一篇文章标题</title>
+    <meta name="date" content="2025-06-30">
+    <meta name="title" content="第一篇文章标题">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html"><i class="fas fa-home"></i> 简历首页</a>
+            <a href="../blog.html"><i class="fas fa-blog"></i> 博客首页</a>
+        </div>
+    </nav>
+    
+    <main class="post-container">
+        <article class="post">
+            <!-- 文章头部 -->
+            <header class="post-header">
+                <h1 class="post-title">第一篇文章标题</h1>
+                <div class="post-meta">
+                    <span class="post-date"><i class="far fa-calendar"></i> 2025-06-30</span>
+                    <span class="post-category"><i class="far fa-folder"></i> 生活随笔</span>
+                    <span class="post-read-time"><i class="far fa-clock"></i> 阅读 2 分钟</span>
+                </div>
+            </header>
+            
+            <!-- 文章内容 -->
+            <div class="post-content">
+                <p>你好，这是我的第一篇博客文章。在这里，我将分享一些关于生活和技术的思考。</p>
+                
+                <!-- 引用区块 -->
+                <blockquote class="post-blockquote">
+                    <p>"真正的发现之旅不在于寻找新的风景，而在于拥有新的眼光。"</p>
+                    <footer>—— 马塞尔·普鲁斯特</footer>
+                </blockquote>
+                
+                <p>生活中总有许多值得记录的瞬间，无论是一次难忘的旅行，还是一次与朋友的深谈。技术的发展让我们能够更方便地记录和分享这些时刻，而博客正是这样一个平台。</p>
+                
+                <!-- 分隔线 -->
+                <div class="post-divider"></div>
+                
+                <h2>为什么开始写博客？</h2>
+                <p>写博客对我来说有几个重要的意义：</p>
+                <ul class="post-list">
+                    <li>整理和深化自己的思考</li>
+                    <li>与他人分享知识和经验</li>
+                    <li>记录生活中的点滴成长</li>
+                </ul>
+                
+                <p>希望这篇文章能为你带来一些启发，也期待在未来的博客中与你分享更多内容。</p>
+            </div>
+            
+            <!-- 文章页脚 -->
+            <footer class="post-footer">
+                <div class="post-tags">
+                    <span><i class="fas fa-tags"></i> 标签：</span>
+                    <a href="#">生活</a>
+                    <a href="#">思考</a>
+                    <a href="#">随笔</a>
+                </div>
+                <div class="post-share">
+                    <span><i class="fas fa-share-alt"></i> 分享：</span>
+                    <a href="#" class="share-btn"><i class="fab fa-weixin"></i></a>
+                    <a href="#" class="share-btn"><i class="fab fa-weibo"></i></a>
+                    <a href="#" class="share-btn"><i class="fab fa-qq"></i></a>
+                </div>
+            </footer>
+        </article>
+        
+        <!-- 相关文章 -->
+        <section class="related-posts">
+            <h2><i class="fas fa-link"></i> 相关文章</h2>
+            <div class="related-posts-list">
+                <a href="#" class="related-post">
+                    <h3>技术学习的心得</h3>
+                    <p class="related-post-date">2025-07-02</p>
+                </a>
+                <a href="#" class="related-post">
+                    <h3>一次难忘的旅行经历</h3>
+                    <p class="related-post-date">2025-06-25</p>
+                </a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Wood-White 个人博客</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-weixin"></i></a>
+                <a href="#"><i class="fab fa-zhihu"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 页面加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            const post = document.querySelector('.post');
+            post.style.opacity = '0';
+            post.style.transform = 'translateY(20px)';
+            post.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            
+            setTimeout(function() {
+                post.style.opacity = '1';
+                post.style.transform = 'translateY(0)';
+            }, 100);
+            
+            // 分享按钮悬停效果
+            const shareBtns = document.querySelectorAll('.share-btn');
+            shareBtns.forEach(btn => {
+                btn.addEventListener('mouseenter', function() {
+                    this.style.transform = 'scale(1.2)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                btn.addEventListener('mouseleave', function() {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
