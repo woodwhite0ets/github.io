@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爬虫经验分享</title>
+    <meta name="date" content="2025-07-04">
+    <meta name="title" content="爬虫经验分享">
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- 引入 highlight.js 的 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html"><i class="fas fa-home"></i> 简历首页</a>
+            <a href="../blog.html"><i class="fas fa-blog"></i> 博客首页</a>
+        </div>
+    </nav>
+
+    <main class="post-container">
+        <article class="post">
+            <!-- 文章头部 -->
+            <header class="post-header">
+                <h1 class="post-title">爬虫经验分享</h1>
+                <div class="post-meta">
+                    <span class="post-date"><i class="far fa-calendar"></i> 2025-06-30</span>
+                    <span class="post-category"><i class="far fa-folder"></i> 生活随笔</span>
+                </div>
+            </header>
+
+            <!-- 文章内容 -->
+            <div class="post-content">
+                <p>这篇文章分享一下我的爬虫经验</p>
+                <div class="post-divider"></div>
+                <h2>浅谈</h2>
+                <p>平常我写爬虫一般用到Selenium 我是感觉这个python库真的非常好用，当然有些人觉得其他的好用我也不否认（因为我没有用过）,从反爬的角度来说我觉得模仿页面滚动已经能解决很多防反爬的措施。
+                    <br>那么这篇博客主要是分享一下我写爬虫过程中用到的一些东西，都是模块化的，大家可以复制粘贴走。
+                </p>
+
+                <!-- 分隔线 -->
+                <div class="post-divider"></div>
+
+                <h2>玩转Selenium第一大难点</h2>
+                <p>不知道平时大家会不会被WebDriver版本与Chrome不匹配困扰已久，这里给大家一个非常好用的代码</p>
+                <pre><code class="python">from selenium import webdriver
+from webdriver_manager.chrome import ChromeDriverManager
+# 使用 ChromeDriverManager 自动下载并设置 
+driver = webdriver.Chrome(service=webdriver.chrome.service.Service(ChromeDriverManager().install()))</code></pre>
+                <p>自动匹配webdriver版本，肥肠好用啊，然后可以直接用了</p>
+                <pre><code>driver.get(url)</code></pre>
+                <p>这个功能对于电脑小白来说应该很方便，省去了到处去找对应版本的WebDriver的时间，相信能帮助到一些人</p>
+                <div class="post-divider"></div>
+                <h2>反爬技巧分享</h2>
+                <p>这个部分主要分享一下反爬的措施，当然不会分享验证码识别，那个还没搞明白，有时间了可以分享一下，验证码识别基本上还是要基于模型了</p>
+                <h3>1.等待随机时间</h3>
+                <p>随机时间也是防止被反爬识别出是机器，当我们给网站发送过多的请求，很多网站的反爬机制就会识别出是机器，然后就会拒绝我们的请求，所以我们可以在每次请求之间加上随机时间，这样就能避免被反爬识别出是机器</p>
+                <pre><code>#这里就不需要我给出代码了吧，挺简单的，random一下然后给time就可以了</code></pre>
+                <h3>2. 模拟页面滚动</h3>
+                <p>这个方法比较简单，但是效果也不错，很多网站随机翻页已经没有办法去绕过反爬了，这个时候就可以模拟页面滚动</p>
+                <pre><code class="python">def random_scroll(driver):
+    # 随机生成滚动次数
+    scroll_times = random.randint(1, 5)
+    for _ in range(scroll_times):
+        # 随机生成滚动距离
+        scroll_distance = random.randint(100, 500)
+        driver.execute_script(f"window.scrollBy(0, {scroll_distance});")
+        time.sleep(random.uniform(0.5, 2))  # 随机等待一段时间，模拟人类操作</code></pre>
+                <p>这个东西我放在了我的数据采集与预处理的课程设计上面，绕过了安居客的反爬检测，还是很好用的</p>
+                <p>还有一个是更换请求头，这个我在用的时候反而感觉没这么好用了，可以让ai写一个试试看，更换请求头进行访问,应该也是一个不错的防反爬措施</p>
+                <div class="post-divider"></div>
+                <p>以上就是我分享的爬虫经验，其实浅显，如果有误或者觉得可以改进的地方可以私信我，主页有我的联系方式，还请多多包涵</p>
+            </div>
+
+            <!-- 文章页脚 -->
+            <footer class="post-footer">
+                <div class="post-tags">
+                    <span><i class="fas fa-tags"></i> 标签：</span>
+                    <a href="#">技术分享</a>
+                    <a>python</a>
+                </div>
+            </footer>
+        </article>
+
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2025 Wood-White 个人博客</p>
+            <div class="social-links">
+                <a href="https://github.com/woodwhite0ets"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 页面加载动画
+        document.addEventListener('DOMContentLoaded', function () {
+            const post = document.querySelector('.post');
+            post.style.opacity = '0';
+            post.style.transform = 'translateY(20px)';
+            post.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+
+            setTimeout(function () {
+                post.style.opacity = '1';
+                post.style.transform = 'translateY(0)';
+            }, 100);
+
+            // 分享按钮悬停效果
+            const shareBtns = document.querySelectorAll('.share-btn');
+            shareBtns.forEach(btn => {
+                btn.addEventListener('mouseenter', function () {
+                    this.style.transform = 'scale(1.2)';
+                    this.style.transition = 'transform 0.3s ease';
+                });
+                btn.addEventListener('mouseleave', function () {
+                    this.style.transform = 'scale(1)';
+                });
+            });
+
+            // 初始化 highlight.js
+            hljs.highlightAll();
+
+            // 添加行号和复制按钮
+            const codeBlocks = document.querySelectorAll('pre code');
+            codeBlocks.forEach(codeBlock => {
+                const pre = codeBlock.parentNode;
+                
+                // 创建行号容器
+                const lineNumbersWrapper = document.createElement('div');
+                lineNumbersWrapper.className = 'line-numbers-wrapper';
+                
+                // 获取代码行数
+                const lines = codeBlock.textContent.split('\n');
+                let lineNumbersHTML = '';
+                
+                // 生成行号
+                for (let i = 1; i <= lines.length; i++) {
+                    lineNumbersHTML += `<span>${i}</span><br>`;
+                }
+                
+                // 设置行号样式
+                lineNumbersWrapper.innerHTML = lineNumbersHTML;
+                lineNumbersWrapper.style.cssText = `
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 2.5em;
+                    text-align: right;
+                    padding: 10px 0.5em 10px 0;
+                    border-right: 1px solid #ddd;
+                    color: #999;
+                    font-family: monospace;
+                    line-height: 1.5;
+                    white-space: pre;
+                    user-select: none;
+                `;
+                
+                // 添加行号容器到 pre
+                pre.appendChild(lineNumbersWrapper);
+                
+                // 设置代码区域样式
+                codeBlock.style.cssText = `
+                    padding-left: 3em;
+                    font-family: monospace;
+                    line-height: 1.5;
+                    white-space: pre;
+                `;
+                
+                // 添加复制按钮
+                const copyBtn = document.createElement('button');
+                copyBtn.classList.add('copy-btn');
+                copyBtn.textContent = '复制';
+                copyBtn.addEventListener('click', () => {
+                    const textToCopy = codeBlock.textContent;
+                    navigator.clipboard.writeText(textToCopy).then(() => {
+                        copyBtn.textContent = '已复制';
+                        setTimeout(() => {
+                            copyBtn.textContent = '复制';
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('复制失败: ', err);
+                    });
+                });
+                pre.appendChild(copyBtn);
+            });
+        });
+    </script>
+    <!-- 引入 highlight.js 的 JavaScript 文件 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+</body>
+
+</html>
