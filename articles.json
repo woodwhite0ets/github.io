@@ -1,17 +1,17 @@
 [
   {
-    "title": "post1",
-    "date": "post1.html",
-    "url": "posts/post1.html"
+    "title": "新帖子",
+    "date": "新帖子.html",
+    "url": "posts/新帖子.html"
   },
   {
-    "title": "post2",
-    "date": "post2.html",
-    "url": "posts/post2.html"
+    "title": "爬虫经验分享",
+    "date": "爬虫经验分享.html",
+    "url": "posts/爬虫经验分享.html"
   },
   {
-    "title": "post3",
-    "date": "post3.html",
-    "url": "posts/post3.html"
+    "title": "第一篇博客",
+    "date": "第一篇博客.html",
+    "url": "posts/第一篇博客.html"
   }
 ]
